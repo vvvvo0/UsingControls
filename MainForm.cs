@@ -22,20 +22,21 @@ namespace UsingControls
 
         // cboFont, chkBold, chkItalic 컨트롤의 이벤트 처리기에서 호출하기 위한 것으로,
         // txtSampleText의 문자열 폰트를 변경하는 기능을 합니다.
-        void ChangeFont()
+        void ChangeFont() 
         {
-            if (cboFont.SelectedIndex < 0)
+            if (cboFont.SelectedIndex < 0) // cboFont에서 선택한 항목이 없으면 메서드 종료
                 return;
 
-            FontStyle style = FontStyle.Regular;
-            if (chkBold.Checked)
+            FontStyle style = FontStyle.Regular; // FontStyle 객체를 초기화
+
+            if (chkBold.Checked) // 만약 "굵게" 체크 박스가 선택되어 있으면 Bold 논리합 수행함
                 style |= FontStyle.Bold;
-            if (chkItalic.Checked)
+
+            if (chkItalic.Checked) // 만약 "이탤릭" 체크 박스가 선택되어 있으면 Italic 논리합 수행함
                 style |= FontStyle.Italic;
 
-            txtSampleText.Font =
-                new Font((string)cboFont.SelectedItem, 10,
-                    style);
+            txtSampleText.Font =     // txtSampleText의 Font 프로퍼티를 앞에서 만든 style로 수정함
+                new Font((string)cboFont.SelectedItem, 10, style);
         }
     }
 }
