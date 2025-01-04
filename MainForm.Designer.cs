@@ -28,33 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new GroupBox();
+            grpFont = new GroupBox();
+            IblFont = new Label();
+            grpFont.SuspendLayout();
             SuspendLayout();
             // 
-            // groupBox1
+            // grpFont
             // 
-            groupBox1.Location = new Point(21, 35);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(584, 360);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "ComboBox, CheckBox, TextBox";
-            groupBox1.Enter += groupBox1_Enter;
+            grpFont.Controls.Add(IblFont);
+            grpFont.Location = new Point(21, 35);
+            grpFont.Name = "grpFont";
+            grpFont.Size = new Size(584, 360);
+            grpFont.TabIndex = 0;
+            grpFont.TabStop = false;
+            grpFont.Text = "ComboBox, CheckBox, TextBox";
+            grpFont.Enter += groupBox1_Enter;
+            // 
+            // IblFont
+            // 
+            IblFont.AutoSize = true;
+            IblFont.Location = new Point(28, 43);
+            IblFont.Name = "IblFont";
+            IblFont.Size = new Size(31, 15);
+            IblFont.TabIndex = 0;
+            IblFont.Text = "Font";
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(groupBox1);
+            Controls.Add(grpFont);
             Name = "MainForm";
             Text = "Control Test";
             Load += MainForm_Load;
+            grpFont.ResumeLayout(false);
+            grpFont.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private GroupBox groupBox1;
+        private GroupBox grpFont;
+        private Label IblFont;
     }
 }
