@@ -58,5 +58,19 @@ namespace UsingControls
         {
             ChangeFont();
         }
+
+
+        // 각 컨트롤에 대해 이벤트 처리기 껍데기를 만듭니다.
+        // tbDummy_Scroll() 이벤트 처리기
+        private void tbDummy_Scroll(object sender, EventArgs e)
+        {
+            pgDummy.Value = tbDummy.Value; // 슬라이더의 위치에 따라 프로그레스바의 내용도 변경됨
+        }
+
+
+        private void pgDummy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
