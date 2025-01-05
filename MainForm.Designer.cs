@@ -39,13 +39,19 @@
             pgDummy = new ProgressBar();
             tbDummy = new TrackBar();
             grpForm = new GroupBox();
-            btnModal = new Button();
-            btnModaless = new Button();
             btnMsgBox = new Button();
+            btnModaless = new Button();
+            btnModal = new Button();
+            grpTreeList = new GroupBox();
+            btnAddChild = new Button();
+            btnAddRoot = new Button();
+            lvDummy = new ListView();
+            tvDummy = new TreeView();
             grpFont.SuspendLayout();
             grpBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbDummy).BeginInit();
             grpForm.SuspendLayout();
+            grpTreeList.SuspendLayout();
             SuspendLayout();
             // 
             // grpFont
@@ -125,7 +131,7 @@
             // 
             grpBar.Controls.Add(pgDummy);
             grpBar.Controls.Add(tbDummy);
-            grpBar.Location = new Point(26, 236);
+            grpBar.Location = new Point(22, 214);
             grpBar.Name = "grpBar";
             grpBar.Size = new Size(567, 189);
             grpBar.TabIndex = 1;
@@ -156,36 +162,16 @@
             grpForm.Controls.Add(btnMsgBox);
             grpForm.Controls.Add(btnModaless);
             grpForm.Controls.Add(btnModal);
-            grpForm.Location = new Point(30, 451);
+            grpForm.Location = new Point(22, 427);
             grpForm.Name = "grpForm";
             grpForm.Size = new Size(565, 85);
             grpForm.TabIndex = 2;
             grpForm.TabStop = false;
             grpForm.Text = "Modal && Modaless";
             // 
-            // btnModal
-            // 
-            btnModal.Location = new Point(46, 19);
-            btnModal.Name = "btnModal";
-            btnModal.Size = new Size(112, 50);
-            btnModal.TabIndex = 0;
-            btnModal.Text = "Modal";
-            btnModal.UseVisualStyleBackColor = true;
-            btnModal.Click += btnModal_Click;
-            // 
-            // btnModaless
-            // 
-            btnModaless.Location = new Point(164, 19);
-            btnModaless.Name = "btnModaless";
-            btnModaless.Size = new Size(127, 50);
-            btnModaless.TabIndex = 1;
-            btnModaless.Text = "Modaless";
-            btnModaless.UseVisualStyleBackColor = true;
-            btnModaless.Click += btnModaless_Click;
-            // 
             // btnMsgBox
             // 
-            btnMsgBox.Location = new Point(297, 19);
+            btnMsgBox.Location = new Point(302, 19);
             btnMsgBox.Name = "btnMsgBox";
             btnMsgBox.Size = new Size(227, 50);
             btnMsgBox.TabIndex = 2;
@@ -193,11 +179,82 @@
             btnMsgBox.UseVisualStyleBackColor = true;
             btnMsgBox.Click += btnMsgBox_Click;
             // 
+            // btnModaless
+            // 
+            btnModaless.Location = new Point(176, 19);
+            btnModaless.Name = "btnModaless";
+            btnModaless.Size = new Size(120, 50);
+            btnModaless.TabIndex = 1;
+            btnModaless.Text = "Modaless";
+            btnModaless.UseVisualStyleBackColor = true;
+            btnModaless.Click += btnModaless_Click;
+            // 
+            // btnModal
+            // 
+            btnModal.Location = new Point(46, 19);
+            btnModal.Name = "btnModal";
+            btnModal.Size = new Size(124, 50);
+            btnModal.TabIndex = 0;
+            btnModal.Text = "Modal";
+            btnModal.UseVisualStyleBackColor = true;
+            btnModal.Click += btnModal_Click;
+            // 
+            // grpTreeList
+            // 
+            grpTreeList.Controls.Add(btnAddChild);
+            grpTreeList.Controls.Add(btnAddRoot);
+            grpTreeList.Controls.Add(lvDummy);
+            grpTreeList.Controls.Add(tvDummy);
+            grpTreeList.Location = new Point(22, 539);
+            grpTreeList.Name = "grpTreeList";
+            grpTreeList.Size = new Size(567, 242);
+            grpTreeList.TabIndex = 3;
+            grpTreeList.TabStop = false;
+            grpTreeList.Text = "TreeView && ListView";
+            grpTreeList.Enter += groupBox2_Enter;
+            // 
+            // btnAddChild
+            // 
+            btnAddChild.Location = new Point(176, 181);
+            btnAddChild.Name = "btnAddChild";
+            btnAddChild.Size = new Size(110, 40);
+            btnAddChild.TabIndex = 3;
+            btnAddChild.Text = "자식 추가";
+            btnAddChild.UseVisualStyleBackColor = true;
+            btnAddChild.Click += btnAddChild_Click;
+            // 
+            // btnAddRoot
+            // 
+            btnAddRoot.Location = new Point(47, 181);
+            btnAddRoot.Name = "btnAddRoot";
+            btnAddRoot.Size = new Size(123, 40);
+            btnAddRoot.TabIndex = 2;
+            btnAddRoot.Text = "루트 추가";
+            btnAddRoot.UseVisualStyleBackColor = true;
+            btnAddRoot.Click += btnAddRoot_Click;
+            // 
+            // lvDummy
+            // 
+            lvDummy.Location = new Point(297, 22);
+            lvDummy.Name = "lvDummy";
+            lvDummy.Size = new Size(232, 145);
+            lvDummy.TabIndex = 1;
+            lvDummy.UseCompatibleStateImageBehavior = false;
+            lvDummy.View = View.Details;
+            // 
+            // tvDummy
+            // 
+            tvDummy.Location = new Point(46, 22);
+            tvDummy.Name = "tvDummy";
+            tvDummy.Size = new Size(240, 148);
+            tvDummy.TabIndex = 0;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(621, 647);
+            ClientSize = new Size(621, 816);
+            Controls.Add(grpTreeList);
             Controls.Add(grpForm);
             Controls.Add(grpBar);
             Controls.Add(grpFont);
@@ -211,6 +268,7 @@
             grpBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)tbDummy).EndInit();
             grpForm.ResumeLayout(false);
+            grpTreeList.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -230,5 +288,10 @@
         private Button btnMsgBox;
         private Button btnModaless;
         private Button btnModal;
+        private GroupBox grpTreeList;
+        private ListView lvDummy;
+        private TreeView tvDummy;
+        private Button btnAddChild;
+        private Button btnAddRoot;
     }
 }

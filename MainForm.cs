@@ -2,10 +2,43 @@ namespace UsingControls
 {
     public partial class MainForm : Form
     {
+        // 필드 생성(TreeView의 노드 이름으로 사용할 난수 생성기)
+        Random random = new Random(37);
+
         public MainForm()
         {
             InitializeComponent();
+
+            // lvDummy에 컬럼을 생성하는 코드 작성
+            lvDummy.Columns.Add("Name");
+            lvDummy.Columns.Add("Depth");
         }
+
+        // TreeToList() 메서드 추가
+        // (TreeView의 각 노드를 ListView로 옮겨 표시하는 기능)
+        void TreeToList()
+        {
+            lvDummy.Items.Clear();
+            foreach (TreeNode node in tvDummy.Nodes)
+                TreeToList(node);
+        }
+
+        void TreeToList(TreeNode Node)
+        {
+            lvDummy.Items.Add(
+                    new ListViewItem(
+                        new string[] { Node.Text,
+                            Node.FullPath.Count(f => f == '\\').ToString() }));
+            // TreeNode 형식의 FullPath 프로퍼티는,
+            // 루트 노드부터 현재 노드까지의 경로를 나타내며,
+            // 각 경로는 \로 구분합니다.
+
+            foreach (TreeNode node in Node.Nodes)
+            {
+                TreeToList(node);
+            }
+        }
+
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -112,6 +145,33 @@ namespace UsingControls
         {
             MessageBox.Show(txtSampleText.Text,
                "MessageBox Test", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+
+        // [루트 추가] 버튼과 [자식 추가] 버튼에 대해 이벤트 처리기 껍데기를 만들고,
+        // 코드를 입력해서 완성합니다. 
+        private void btnAddRoot_Click(object sender, EventArgs e)
+        {
+            tvDummy.Nodes.Add(random.Next().ToString());
+            TreeToList();
+        }
+
+        private void btnAddChild_Click(object sender, EventArgs e)
+        {
+            if (tvDummy.SelectedNode == null)
+            {
+                MessageBox.Show("선택된 노드가 없습니다.",
+                    "TreeView Test", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            tvDummy.SelectedNode.Nodes.Add(random.Next().ToString());
+            tvDummy.SelectedNode.Expand();
+            TreeToList();
         }
     }
 }
