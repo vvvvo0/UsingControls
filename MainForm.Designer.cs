@@ -29,18 +29,23 @@
         private void InitializeComponent()
         {
             grpFont = new GroupBox();
+            groupBox1 = new GroupBox();
             txtSampleText = new TextBox();
             chkltalic = new CheckBox();
             chkBold = new CheckBox();
             cboFont = new ComboBox();
             IblFont = new Label();
-            groupBox1 = new GroupBox();
             grpBar = new GroupBox();
-            tbDummy = new TrackBar();
             pgDummy = new ProgressBar();
+            tbDummy = new TrackBar();
+            grpForm = new GroupBox();
+            btnModal = new Button();
+            btnModaless = new Button();
+            btnMsgBox = new Button();
             grpFont.SuspendLayout();
             grpBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbDummy).BeginInit();
+            grpForm.SuspendLayout();
             SuspendLayout();
             // 
             // grpFont
@@ -58,6 +63,15 @@
             grpFont.TabStop = false;
             grpFont.Text = "ComboBox, CheckBox, TextBox";
             grpFont.Enter += groupBox1_Enter;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Location = new Point(31, 157);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(528, 192);
+            groupBox1.TabIndex = 5;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
             // 
             // txtSampleText
             // 
@@ -107,15 +121,6 @@
             IblFont.TabIndex = 0;
             IblFont.Text = "Font :";
             // 
-            // groupBox1
-            // 
-            groupBox1.Location = new Point(31, 157);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(528, 192);
-            groupBox1.TabIndex = 5;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
-            // 
             // grpBar
             // 
             grpBar.Controls.Add(pgDummy);
@@ -128,15 +133,6 @@
             grpBar.Text = "TrackBar && ProgressBar";
             grpBar.Enter += chkItalic_CheckedChanged;
             // 
-            // tbDummy
-            // 
-            tbDummy.Location = new Point(20, 37);
-            tbDummy.Maximum = 20;
-            tbDummy.Name = "tbDummy";
-            tbDummy.Size = new Size(528, 45);
-            tbDummy.TabIndex = 0;
-            tbDummy.Scroll += tbDummy_Scroll;
-            // 
             // pgDummy
             // 
             pgDummy.Location = new Point(21, 109);
@@ -146,11 +142,63 @@
             pgDummy.TabIndex = 1;
             pgDummy.Click += pgDummy_Click;
             // 
+            // tbDummy
+            // 
+            tbDummy.Location = new Point(20, 37);
+            tbDummy.Maximum = 20;
+            tbDummy.Name = "tbDummy";
+            tbDummy.Size = new Size(528, 45);
+            tbDummy.TabIndex = 0;
+            tbDummy.Scroll += tbDummy_Scroll;
+            // 
+            // grpForm
+            // 
+            grpForm.Controls.Add(btnMsgBox);
+            grpForm.Controls.Add(btnModaless);
+            grpForm.Controls.Add(btnModal);
+            grpForm.Location = new Point(30, 451);
+            grpForm.Name = "grpForm";
+            grpForm.Size = new Size(565, 85);
+            grpForm.TabIndex = 2;
+            grpForm.TabStop = false;
+            grpForm.Text = "Modal && Modaless";
+            // 
+            // btnModal
+            // 
+            btnModal.Location = new Point(46, 19);
+            btnModal.Name = "btnModal";
+            btnModal.Size = new Size(112, 50);
+            btnModal.TabIndex = 0;
+            btnModal.Text = "Modal";
+            btnModal.UseVisualStyleBackColor = true;
+            btnModal.Click += btnModal_Click;
+            // 
+            // btnModaless
+            // 
+            btnModaless.Location = new Point(164, 19);
+            btnModaless.Name = "btnModaless";
+            btnModaless.Size = new Size(127, 50);
+            btnModaless.TabIndex = 1;
+            btnModaless.Text = "Modaless";
+            btnModaless.UseVisualStyleBackColor = true;
+            btnModaless.Click += btnModaless_Click;
+            // 
+            // btnMsgBox
+            // 
+            btnMsgBox.Location = new Point(297, 19);
+            btnMsgBox.Name = "btnMsgBox";
+            btnMsgBox.Size = new Size(227, 50);
+            btnMsgBox.TabIndex = 2;
+            btnMsgBox.Text = "MessageBox";
+            btnMsgBox.UseVisualStyleBackColor = true;
+            btnMsgBox.Click += btnMsgBox_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(621, 450);
+            ClientSize = new Size(621, 647);
+            Controls.Add(grpForm);
             Controls.Add(grpBar);
             Controls.Add(grpFont);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -162,6 +210,7 @@
             grpBar.ResumeLayout(false);
             grpBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)tbDummy).EndInit();
+            grpForm.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -177,5 +226,9 @@
         private GroupBox grpBar;
         private ProgressBar pgDummy;
         private TrackBar tbDummy;
+        private GroupBox grpForm;
+        private Button btnMsgBox;
+        private Button btnModaless;
+        private Button btnModal;
     }
 }

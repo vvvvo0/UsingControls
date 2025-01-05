@@ -72,5 +72,33 @@ namespace UsingControls
         {
 
         }
+
+
+        // 컨트롤에 대해 이벤트 처리기 껍데기를 만듭니다.
+        private void btnModal_Click(object sender, EventArgs e)
+        {
+            Form frm = new Form();
+            frm.Text = "Modal Form";
+            frm.Width = 300;
+            frm.Height = 100;
+            frm.BackColor = Color.Red;
+            frm.ShowDialog(); // Modal 창을 띄웁니다
+        }
+
+        private void btnModaless_Click(object sender, EventArgs e)
+        {
+            Form frm = new Form();
+            frm.Text = "Modaless Form";
+            frm.Width = 300;
+            frm.Height = 300;
+            frm.BackColor = Color.Green;
+            frm.Show(); // Modaless 창을 띄웁니다
+        }
+
+        private void btnMsgBox_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(txtSampleText.Text,
+               "MessageBox Test", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
     }
 }
